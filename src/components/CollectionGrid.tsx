@@ -11,6 +11,11 @@ export function CollectionGrid({ products }: { products: Product[] }) {
         <p className="font-display text-[clamp(2rem,4vw,3.25rem)] font-light lowercase leading-[1.2] text-espresso">
           the finished object.
         </p>
+        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.7] text-espresso/65">
+          &ldquo;Pay for materials and craftsmanship, not marketing.&rdquo; Full-grain,
+          vegetable-tanned hide. Raw brass hardware. Hand-saddle-stitched. Every
+          piece carries a ten-year repair guarantee, no questions.
+        </p>
       </FadeUp>
 
       {products.length === 0 ? (
@@ -45,6 +50,12 @@ export function CollectionGrid({ products }: { products: Product[] }) {
                 {p.description && (
                   <p className="mt-2 text-[14px] leading-[1.6] text-espresso/55">{p.description}</p>
                 )}
+                <Link
+                  href="/product"
+                  className="mt-4 inline-block self-start text-[13px] uppercase tracking-[0.08em] text-espresso underline decoration-espresso/30 underline-offset-4 transition-colors duration-300 hover:decoration-espresso"
+                >
+                  Shop {p.name} →
+                </Link>
               </FadeUp>
             ))}
           </ul>

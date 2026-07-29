@@ -52,9 +52,14 @@ export default async function ProductPage() {
           made to be worn in.
         </h1>
         <p className="mt-6 max-w-xl text-[15px] leading-[1.7] text-espresso/60">
-          Each piece is built from full-grain, vegetable-tanned hide and raw brass
-          hardware — no lining to wear through, nothing to replace. Choose one,
-          and it will still be yours in ten years.
+          Each piece is built from full-grain, vegetable-tanned hide,
+          hand-saddle-stitched, and finished with raw brass hardware — no
+          lining to wear through, nothing to replace. Choose one, and it will
+          still be yours in ten years.
+        </p>
+        <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-espresso/60">
+          &ldquo;Pay for materials and craftsmanship, not marketing.&rdquo;
+          Every piece carries a ten-year repair guarantee, no questions.
         </p>
 
         {products.length === 0 ? (
