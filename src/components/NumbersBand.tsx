@@ -4,10 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 
 const METRICS = [
-  { target: 100, suffix: "%", label: "Full-grain, vegetable-tanned" },
-  { target: 10, suffix: " yr", label: "Repair guarantee" },
-  { target: 10, suffix: " hr", label: "Hand-stitched, start to finish" },
-  { target: 1, suffix: "", label: "Workshop, one thread" },
+  {
+    target: 100,
+    suffix: "%",
+    label: "full-grain, vegetable-tanned",
+    gradient: "linear-gradient(135deg, #2F3A2A 0%, #3D4A35 100%)",
+  },
+  {
+    target: 10,
+    suffix: " yr",
+    label: "repair guarantee, no questions",
+    gradient: "linear-gradient(135deg, #4A2F22 0%, #6B3E2A 100%)",
+  },
+  {
+    target: 1,
+    suffix: "",
+    label: "workshop, one thread",
+    gradient: "linear-gradient(135deg, #3A2E28 0%, #4E3A30 100%)",
+  },
 ];
 
 function CountUp({ target, suffix }: { target: number; suffix: string }) {
@@ -18,7 +32,7 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   useEffect(() => {
     if (!inView) return;
     const controls = animate(0, target, {
-      duration: 1.4,
+      duration: 1.2,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setValue(Math.round(v)),
     });
@@ -26,7 +40,7 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   }, [inView, target]);
 
   return (
-    <span ref={ref} className="font-display font-light tabular-nums">
+    <span ref={ref} className="font-display font-light tabular-nums drop-shadow-sm">
       {value}
       {suffix}
     </span>
@@ -35,19 +49,18 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 
 export function NumbersBand() {
   return (
-    <section id="numbers" className="relative z-10 bg-ink px-6 pb-24 pt-4 md:px-10">
-      <div className="mx-auto max-w-4xl pb-14 text-center">
-        <p className="text-[13px] text-white/60">
-          Every measurement here is a promise, not a marketing line.
-        </p>
-      </div>
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 divide-y divide-white/10 md:grid-cols-4 md:divide-x md:divide-y-0">
+    <section id="numbers" className="relative z-10 bg-cream px-6 py-24 md:px-10">
+      <div className="mx-auto grid max-w-[1300px] gap-6 md:grid-cols-3">
         {METRICS.map((m) => (
-          <div key={m.label} className="flex flex-col items-center gap-3 px-4 py-8 text-center">
-            <div className="text-[clamp(2.75rem,6vw,4.5rem)] leading-none text-white">
+          <div
+            key={m.label}
+            className="noise-overlay gradient-drift relative flex aspect-[4/5] flex-col items-center justify-center overflow-hidden rounded-[2rem] px-6 py-10 text-center sm:aspect-square"
+            style={{ background: m.gradient }}
+          >
+            <div className="text-[clamp(2.75rem,6vw,5.5rem)] leading-none text-cream md:text-[clamp(3rem,5vw,88px)]">
               <CountUp target={m.target} suffix={m.suffix} />
             </div>
-            <p className="text-[11px] uppercase tracking-[0.18em] text-white/50">{m.label}</p>
+            <p className="absolute bottom-8 px-6 text-[14px] leading-[1.5] text-cream/85">{m.label}</p>
           </div>
         ))}
       </div>

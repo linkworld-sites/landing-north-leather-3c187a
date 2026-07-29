@@ -13,9 +13,9 @@ import { fetchProducts } from "@/lib/checkout";
  * (string) — NOT `product_id`.
  */
 export const CATALOG: Product[] = [
-  { id: "demo-1", name: "Product One", description: "Replace with a real product.", price_cents: 4900, currency: "EUR", image_url: null, stock: null },
-  { id: "demo-2", name: "Product Two", description: "Replace with a real product.", price_cents: 7900, currency: "EUR", image_url: null, stock: null },
-  { id: "demo-3", name: "Product Three", description: "Replace with a real product.", price_cents: 6500, currency: "EUR", image_url: null, stock: null },
+  { id: "demo-1", name: "The Weekender", description: "Full-grain chestnut leather, brass hardware, saddle-stitched by hand.", price_cents: 42000, currency: "EUR", image_url: null, stock: null },
+  { id: "demo-2", name: "The Field Tote", description: "Vegetable-tanned honey leather, built for daily carry that only gets better.", price_cents: 28000, currency: "EUR", image_url: null, stock: null },
+  { id: "demo-3", name: "The Belt", description: "A single strip of full-grain hide, raw brass buckle, no lining to wear through.", price_cents: 9500, currency: "EUR", image_url: null, stock: null },
 ];
 
 /** Live products when configured, else the demo catalog. */

@@ -21,23 +21,23 @@ type Stage = {
 
 const STAGES: Stage[] = [
   {
-    label: "Day 1",
-    caption: "Day 1 — bright, stiff, straight off the workbench.",
+    label: "day 1",
+    caption: "day 1 — bright, stiff, straight off the workbench.",
     filter: "sepia(0.05) saturate(0.75) brightness(1.14) contrast(0.95)",
   },
   {
-    label: "Month 6",
-    caption: "Month 6 — softened at the handles, first shift toward gold.",
+    label: "month 6",
+    caption: "month 6 — softened at the handles, first shift toward gold.",
     filter: "sepia(0.22) saturate(0.95) brightness(1.04) contrast(1)",
   },
   {
-    label: "Year 3",
-    caption: "Year 3 — 620 commutes, one spilled coffee, zero regrets.",
+    label: "year 3",
+    caption: "year 3 — 620 commutes, one spilled coffee, zero regrets.",
     filter: "sepia(0.42) saturate(1.15) brightness(0.95) contrast(1.05)",
   },
   {
-    label: "Year 10",
-    caption: "Year 10 — deep cognac, soft creasing at the gusset, still the only bag he owns.",
+    label: "year 10",
+    caption: "year 10 — deep cognac, soft creasing at the gusset, still the only bag he owns.",
     filter: "sepia(0.62) saturate(1.35) brightness(0.85) contrast(1.12)",
   },
 ];
@@ -70,14 +70,14 @@ function PinnedLedger() {
   );
 
   return (
-    <section id="patina" ref={containerRef} className="relative z-10 h-[400vh] bg-ink noise-overlay">
+    <section id="patina" ref={containerRef} className="relative z-10 h-[400vh] bg-moss noise-overlay">
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         {/* timeline rail */}
         <div className="absolute left-6 top-0 z-20 flex h-full flex-col items-center py-16 md:left-10">
           <div className="relative h-full w-px bg-white/15">
             <motion.div
               style={{ scaleY: scrollYProgress, originY: 0 }}
-              className="absolute inset-x-0 top-0 h-full w-px bg-tan"
+              className="absolute inset-x-0 top-0 h-full w-px bg-terracotta"
             />
             {STAGES.map((s, i) => (
               <div
@@ -87,11 +87,11 @@ function PinnedLedger() {
               >
                 <span
                   className={`h-[7px] w-[7px] rounded-full transition-colors duration-500 ${
-                    stageIndex >= i ? "bg-tan" : "bg-white/20"
+                    stageIndex >= i ? "bg-terracotta" : "bg-white/20"
                   }`}
                 />
                 <span
-                  className={`whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.15em] transition-colors duration-500 ${
+                  className={`whitespace-nowrap text-[12px] tracking-[0.03em] transition-colors duration-500 ${
                     stageIndex >= i ? "text-white/90" : "text-white/25"
                   }`}
                 >
@@ -103,8 +103,8 @@ function PinnedLedger() {
         </div>
 
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
-          <p className="absolute left-6 top-24 z-20 max-w-[220px] font-mono text-[10px] uppercase tracking-[0.18em] text-white/40 md:left-24 md:top-28">
-            The Patina Ledger — the Weekender, Chestnut
+          <p className="absolute left-6 top-24 z-20 max-w-[220px] text-[13px] tracking-[0.02em] text-white/40 md:left-24 md:top-28">
+            the patina ledger — the weekender, chestnut
           </p>
 
           <div className="relative mx-auto aspect-[4/5] w-[78%] max-w-xl md:aspect-[16/10] md:w-[70%] md:max-w-3xl">
@@ -130,7 +130,7 @@ function PinnedLedger() {
                 <line x1="0" y1="20" x2="52" y2="4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
                 <circle cx="2" cy="21" r="2" fill="currentColor" />
               </svg>
-              <span className="whitespace-nowrap font-mono text-[8px] uppercase tracking-[0.15em] text-white/70">
+              <span className="whitespace-nowrap text-[11px] tracking-[0.02em] text-white/70">
                 corner rub — natural, from set-down
               </span>
             </motion.div>
@@ -140,7 +140,7 @@ function PinnedLedger() {
               {STAGES.map((s, i) => (
                 <p
                   key={s.label}
-                  className={`absolute left-0 font-mono text-[11px] uppercase tracking-[0.1em] text-white/70 transition-opacity duration-700 md:text-[13px] ${
+                  className={`absolute left-0 text-[13px] tracking-[0.01em] text-white/70 transition-opacity duration-700 md:text-[15px] ${
                     stageIndex === i ? "opacity-100" : "opacity-0"
                   }`}
                 >
@@ -157,9 +157,9 @@ function PinnedLedger() {
 
 function StaticLedger() {
   return (
-    <section className="relative z-10 bg-ink px-6 py-24 noise-overlay md:px-10">
-      <p className="mx-auto mb-12 max-w-[1400px] font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
-        The Patina Ledger — the Weekender, Chestnut
+    <section className="relative z-10 bg-moss px-6 py-24 noise-overlay md:px-10">
+      <p className="mx-auto mb-12 max-w-[1400px] text-[13px] tracking-[0.02em] text-white/40">
+        the patina ledger — the weekender, chestnut
       </p>
       <div className="mx-auto grid max-w-[1400px] gap-16 md:grid-cols-2">
         {STAGES.map((s) => (
@@ -169,7 +169,7 @@ function StaticLedger() {
                 <Image src={IMG} alt={s.caption} fill sizes="45vw" className="object-cover" />
               </div>
             </div>
-            <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.1em] text-white/70">{s.caption}</p>
+            <p className="mt-4 text-[14px] tracking-[0.01em] text-white/70">{s.caption}</p>
           </div>
         ))}
       </div>

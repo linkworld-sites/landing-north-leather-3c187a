@@ -4,13 +4,15 @@ import { WordStagger } from "./FadeUp";
 
 export function Manifesto() {
   return (
-    <section className="relative z-10 bg-paper px-6 py-36 md:py-48">
+    <section className="relative z-10 bg-cream px-6 py-32 md:py-44">
       <div className="mx-auto max-w-4xl text-center">
-        <p className="mb-8 text-[11px] uppercase tracking-[0.22em] text-ink/50">01 — Thesis</p>
+        <p className="wobble-underline mb-8 inline-block text-[14px] tracking-[0.04em] text-terracotta">
+          our thesis
+        </p>
         <WordStagger
           as="p"
-          text="We build one bag at a time, so it can be carried for the rest of yours."
-          className="justify-center font-display text-[clamp(1.9rem,5vw,3.4rem)] font-light leading-[1.2] text-ink"
+          text="we build one bag at a time, so it can be carried for the rest of yours."
+          className="justify-center font-display text-[clamp(1.9rem,5vw,3.4rem)] font-light lowercase leading-[1.25] text-espresso"
           baseDelay={0.05}
         />
       </div>

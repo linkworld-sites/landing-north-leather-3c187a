@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, Nunito_Sans } from "next/font/google";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { FunnelTracker } from "@/components/FunnelTracker";
 import { EditBridge } from "@/components/EditBridge";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -16,30 +17,48 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const inter = Inter({
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "North Leather — Made to be worn in",
+  metadataBase: new URL(SITE_URL),
+  title: { default: "north leather — made to be worn in", template: `%s — ${SITE_NAME}` },
   description:
     "Full-grain, vegetable-tanned bags built for the next decade, not the next season. Honest construction that ages into something better.",
+  alternates: { canonical: "/" },
+  verification: { google: "WlJ66mw7eszwjs5WXh-HAJ_3n22gXQA1yf23ABf0enE" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+      {
+        "@type": "WebSite",
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+    ],
+  };
+
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
-      <body className="bg-paper font-sans text-ink antialiased">
+    <html lang="en" className={`${fraunces.variable} ${nunitoSans.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="bg-cream font-sans text-espresso antialiased">
         <FunnelTracker />
         <EditBridge />
         <SmoothScroll>

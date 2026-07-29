@@ -5,17 +5,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#FAFAF7",
-        ink: "#1A1310",
-        umber: "#2B1810",
-        chestnut: "#6B4226",
-        tan: "#C9A876",
-        stone: "#8C7A5E",
+        cream: "#FAF3EA",
+        sand: "#EDD9C7",
+        rose: "#C9A79A",
+        sage: "#9CAF88",
+        terracotta: "#C97C5D",
+        espresso: "#3A2E28",
+        moss: "#2F3A2A",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         sans: ["var(--font-body)", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
       },
       transitionTimingFunction: {
         gallery: "cubic-bezier(0.22, 1, 0.36, 1)",
