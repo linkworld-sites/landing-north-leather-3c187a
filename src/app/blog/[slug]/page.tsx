@@ -125,6 +125,17 @@ export default async function BlogPost({
             },
           ],
         }
+      : post.slug === "full-grain-leather-weekender-bag-for-travel"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "The Weekender",
+          description:
+            "Full-grain chestnut leather, raw brass hardware, saddle-stitched by hand. Built for decades of travel, not a season of trend.",
+          url: `${SITE_URL}/product`,
+          brand: { "@type": "Brand", name: SITE_NAME },
+          offers: { "@type": "Offer", priceCurrency: "EUR", price: "420.00" },
+        }
       : null;
 
   return (
