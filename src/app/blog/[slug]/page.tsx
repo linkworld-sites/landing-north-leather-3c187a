@@ -79,6 +79,52 @@ export default async function BlogPost({
             },
           ],
         }
+      : post.slug === "how-full-grain-leather-ages-and-develops-patina"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "Product",
+                name: "The Weekender",
+                description:
+                  "Full-grain chestnut leather, raw brass hardware, saddle-stitched by hand. Built for decades of travel, not a season of trend.",
+                url: `${SITE_URL}/product`,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                offers: { "@type": "Offer", priceCurrency: "EUR", price: "420.00" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "Product",
+                name: "The Field Tote",
+                description:
+                  "Vegetable-tanned honey leather for daily carry — the kind of bag that looks better every year you use it.",
+                url: `${SITE_URL}/product`,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                offers: { "@type": "Offer", priceCurrency: "EUR", price: "280.00" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              item: {
+                "@type": "Product",
+                name: "The Belt",
+                description:
+                  "A single strip of full-grain hide with a raw brass buckle. No lining to wear through, nothing to replace.",
+                url: `${SITE_URL}/product`,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                offers: { "@type": "Offer", priceCurrency: "EUR", price: "95.00" },
+              },
+            },
+          ],
+        }
       : null;
 
   return (
