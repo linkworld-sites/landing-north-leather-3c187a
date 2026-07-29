@@ -45,12 +45,54 @@ export default async function BlogPost({
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
 
+  const productJsonLd =
+    post.slug === "best-leather-tote-bag-for-daily-use"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "Product",
+                name: "The Field Tote",
+                description:
+                  "Vegetable-tanned honey leather for daily carry — the kind of bag that looks better every year you use it.",
+                url: `${SITE_URL}/product`,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                offers: { "@type": "Offer", priceCurrency: "EUR", price: "280.00" },
+              },
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@type": "Product",
+                name: "The Weekender",
+                description:
+                  "Full-grain chestnut leather, raw brass hardware, saddle-stitched by hand. Built for decades of travel, not a season of trend.",
+                url: `${SITE_URL}/product`,
+                brand: { "@type": "Brand", name: SITE_NAME },
+                offers: { "@type": "Offer", priceCurrency: "EUR", price: "420.00" },
+              },
+            },
+          ],
+        }
+      : null;
+
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 pb-32 pt-40 md:pt-48">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {productJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        />
+      )}
       <Link href="/blog" className="text-[14px] text-terracotta underline underline-offset-4">
         ← all stories
       </Link>
