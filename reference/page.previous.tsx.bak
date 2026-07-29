@@ -1,25 +1,28 @@
-// Signature element unique to North Leather: The Patina Ledger — a
+// Signature element unique to North Leather: the Patina Ledger — a
 // scroll-scrubbed timeline that literally ages one bag ten years as you
 // scroll, proving "made to last" in real time instead of claiming it.
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
-import { StickyShowcase } from "@/components/StickyShowcase";
-import { PatinaLedger } from "@/components/PatinaLedger";
+import { FeatureRows } from "@/components/FeatureRows";
+import { ReviewCards } from "@/components/ReviewCards";
 import { NumbersBand } from "@/components/NumbersBand";
-import { QuotePanel } from "@/components/QuotePanel";
+import { PatinaLedger } from "@/components/PatinaLedger";
 import { CollectionGrid } from "@/components/CollectionGrid";
 import { SplitCTA } from "@/components/SplitCTA";
+import { getProducts } from "@/lib/products";
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <main className="min-h-screen">
       <Hero />
       <Manifesto />
-      <StickyShowcase />
-      <PatinaLedger />
+      <FeatureRows />
+      <ReviewCards />
       <NumbersBand />
-      <QuotePanel />
-      <CollectionGrid />
+      <PatinaLedger />
+      <CollectionGrid products={products} />
       <SplitCTA />
     </main>
   );

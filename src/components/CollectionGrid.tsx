@@ -1,6 +1,6 @@
+import Link from "next/link";
 import type { Product } from "@/lib/checkout";
-import { CartProvider } from "@/components/CartContext";
-import ShopClient from "@/components/ShopClient";
+import { formatPrice } from "@/lib/checkout";
 import { FadeUp } from "./FadeUp";
 
 export function CollectionGrid({ products }: { products: Product[] }) {
@@ -18,10 +18,44 @@ export function CollectionGrid({ products }: { products: Product[] }) {
           the collection is being restocked — check back shortly, or get in touch to be first to know.
         </p>
       ) : (
-        <div className="mx-auto max-w-[1300px] rounded-[2rem] bg-sand/30 p-6 md:p-10">
-          <CartProvider>
-            <ShopClient products={products} />
-          </CartProvider>
+        <div className="mx-auto max-w-[1300px] rounded-[2rem] bg-sand/30 p-6 md:p-10 md:p-12">
+          <ul className="grid gap-8 sm:grid-cols-3">
+            {products.slice(0, 3).map((p) => (
+              <FadeUp as="li" key={p.id} className="group flex flex-col">
+                <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl bg-cream/70">
+                  {p.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.image_url}
+                      alt={p.name}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center px-6 text-center font-display text-lg italic text-espresso/30">
+                      {p.name}
+                    </div>
+                  )}
+                </div>
+                <div className="mt-5 flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-lg text-espresso">{p.name}</h3>
+                  <span className="tabular-nums text-[14px] text-espresso/60">
+                    {formatPrice(p.price_cents, p.currency)}
+                  </span>
+                </div>
+                {p.description && (
+                  <p className="mt-2 text-[14px] leading-[1.6] text-espresso/55">{p.description}</p>
+                )}
+              </FadeUp>
+            ))}
+          </ul>
+          <FadeUp className="mt-14 text-center">
+            <Link
+              href="/product"
+              className="inline-block border border-espresso/30 px-8 py-3 text-[13px] uppercase tracking-[0.08em] text-espresso transition-colors duration-300 hover:border-espresso hover:bg-espresso hover:text-cream"
+            >
+              shop the collection
+            </Link>
+          </FadeUp>
         </div>
       )}
     </section>

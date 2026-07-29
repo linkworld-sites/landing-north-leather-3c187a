@@ -9,7 +9,7 @@ export function Footer() {
         </span>
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] tracking-[0.02em] text-cream/55">
           <li>
-            <Link href="/#shop" className="transition-colors duration-200 hover:text-cream">
+            <Link href="/product" className="transition-colors duration-200 hover:text-cream">
               shop
             </Link>
           </li>
