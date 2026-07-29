@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const LINKS = [
@@ -11,14 +12,20 @@ const LINKS = [
 ];
 
 export function Nav() {
-  const [solid, setSolid] = useState(false);
+  const pathname = usePathname();
+  const hasVideoHero = pathname === "/";
+  const [solid, setSolid] = useState(!hasVideoHero);
 
   useEffect(() => {
+    if (!hasVideoHero) {
+      setSolid(true);
+      return;
+    }
     const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.7);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hasVideoHero]);
 
   return (
     <header
