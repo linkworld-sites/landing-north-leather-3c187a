@@ -4,7 +4,8 @@ import { getPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "the journal",
-  description: "Notes from the North Leather workshop — on hides, hardware, and things built to last.",
+  description:
+    "Full-grain leather bags, hand-built for decades of daily use — notes from the North Leather workshop on hides, hardware, and honest construction.",
   alternates: { canonical: "/blog" },
 };
 

@@ -15,7 +15,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
   description:
-    "Full-grain leather bags, hand-built for decades — the Weekender, the Field Tote, and the Belt, made from vegetable-tanned hide with raw brass hardware and saddle-stitched seams that only get better with age.",
+    "Full-grain leather bags, hand-built for decades of daily use — the Weekender, the Field Tote, and the Belt, in vegetable-tanned hide with raw brass hardware and saddle-stitched seams.",
   alternates: { canonical: "/" },
 };
 
