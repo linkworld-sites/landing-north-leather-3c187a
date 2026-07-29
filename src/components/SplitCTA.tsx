@@ -41,7 +41,7 @@ export function SplitCTA() {
               </p>
               <motion.div whileHover="hover" initial="rest" animate="rest" whileTap={{ scale: 0.97 }} className="mt-10 inline-block">
                 <Link
-                  href="#shop"
+                  href="/product"
                   className="liquid-glass inline-flex items-center gap-3 rounded-full px-7 py-4 text-[14px] text-cream transition-colors duration-200 hover:bg-cream/10"
                 >
                   see the collection
