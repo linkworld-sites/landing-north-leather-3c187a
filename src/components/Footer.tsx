@@ -19,6 +19,11 @@ export function Footer() {
             </Link>
           </li>
           <li>
+            <Link href="/craftsmanship" className="transition-colors duration-200 hover:text-cream">
+              craftsmanship
+            </Link>
+          </li>
+          <li>
             <Link href="/legal/privacy" className="transition-colors duration-200 hover:text-cream">
               privacy
             </Link>

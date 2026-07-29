@@ -183,3 +183,21 @@ body {
 .post-body strong {
   font-weight: 700;
 }
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+}
+.post-body th,
+.post-body td {
+  padding: 0.7em 1em;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(58, 46, 40, 0.12);
+}
+.post-body th {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  color: #3a2e28;
+}
