@@ -21,7 +21,7 @@ export function FadeUp({
   amount?: number;
 }) {
   const reduced = useReducedMotion();
-  const MotionTag = motion(Tag as ElementType);
+  const MotionTag = motion.create(Tag as ElementType);
   return (
     <MotionTag
       initial={reduced ? undefined : { opacity: 0, y }}
@@ -54,7 +54,7 @@ export function WordStagger({
 }) {
   const reduced = useReducedMotion();
   const words = text.split(" ");
-  const MotionTag = motion(Tag as ElementType);
+  const MotionTag = motion.create(Tag as ElementType);
   return (
     <MotionTag
       className={`flex flex-wrap gap-x-[0.25em] gap-y-1 ${className}`}
