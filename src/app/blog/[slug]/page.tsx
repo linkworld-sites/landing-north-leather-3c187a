@@ -136,6 +136,17 @@ export default async function BlogPost({
           brand: { "@type": "Brand", name: SITE_NAME },
           offers: { "@type": "Offer", priceCurrency: "EUR", price: "420.00" },
         }
+      : post.slug === "full-grain-leather-tote-bag-daily-carry"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: "The Field Tote",
+          description:
+            "Vegetable-tanned honey leather for daily carry — the kind of bag that looks better every year you use it.",
+          url: `${SITE_URL}/product`,
+          brand: { "@type": "Brand", name: SITE_NAME },
+          offers: { "@type": "Offer", priceCurrency: "EUR", price: "280.00" },
+        }
       : null;
 
   return (
