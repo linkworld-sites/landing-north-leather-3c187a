@@ -10,6 +10,7 @@ import { NumbersBand } from "@/components/NumbersBand";
 import { PatinaLedger } from "@/components/PatinaLedger";
 import { CollectionGrid } from "@/components/CollectionGrid";
 import { SplitCTA } from "@/components/SplitCTA";
+import { FAQ, FAQ_ITEMS } from "@/components/FAQ";
 import { getProducts } from "@/lib/products";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
@@ -65,6 +66,16 @@ const productsJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default async function Home() {
   const products = await getProducts();
 
@@ -74,6 +85,10 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productsJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Hero />
       <Manifesto />
       <FeatureRows />
@@ -81,6 +96,7 @@ export default async function Home() {
       <NumbersBand />
       <PatinaLedger />
       <CollectionGrid products={products} />
+      <FAQ />
       <SplitCTA />
     </main>
   );
