@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/product", label: "shop" },
   { href: "/#craft", label: "craft" },
   { href: "/blog", label: "journal" },
+  { href: "/about", label: "about" },
 ];
 
 export function Nav() {
