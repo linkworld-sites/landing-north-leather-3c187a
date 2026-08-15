@@ -41,11 +41,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@type": "Organization",
         name: SITE_NAME,
         url: SITE_URL,
+        description:
+          "North Leather makes full-grain, vegetable-tanned leather bags — hand saddle-stitched with raw brass hardware — built to be used for decades, not seasons.",
+        slogan: "Made to be worn in.",
+        knowsAbout: [
+          "full-grain leather bags",
+          "vegetable-tanned leather",
+          "saddle stitching",
+          "handcrafted leather goods",
+        ],
+        makesOffer: {
+          "@type": "AggregateOffer",
+          priceCurrency: "EUR",
+          lowPrice: "95.00",
+          highPrice: "420.00",
+        },
       },
       {
         "@type": "WebSite",
         name: SITE_NAME,
         url: SITE_URL,
+        description:
+          "Full-grain, vegetable-tanned bags built for the next decade, not the next season.",
       },
     ],
   };
